@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-boot-app
-  labels:
-    app: spring-boot-app
+  name: zomato-app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: spring-boot-app
+      app: zomato
   template:
     metadata:
       labels:
-        app: spring-boot-app
+        app: zomato
     spec:
       containers:
-      - name: spring-boot-app
-        image: iamsaikishore/spring-boot-app:replaceImageTag
+      - name: zomato-container
+        image: 224075521027.dkr.ecr.us-east-1.amazonaws.com/zomato-app:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 3000
